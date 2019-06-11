@@ -44,10 +44,11 @@ export class DishdetailComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private fb:FormBuilder) {
-      this.createForm();
+      
      }
      
      ngOnInit() {
+      this.createForm();
       this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
       this.route.params.pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
       .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
@@ -61,7 +62,7 @@ export class DishdetailComponent implements OnInit {
 
     createForm(){
       this.commentForm=this.fb.group({
-        author:['',Validators.required,Validators.minLength(2)],
+        author:['',[Validators.required,Validators.minLength(2)]],
         rating:5,
         comment:['',Validators.required]
         

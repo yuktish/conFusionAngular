@@ -40,9 +40,9 @@
           <p matLine>--{{comment.author}} {{comment.date | date}}</p>
         </mat-list-item>
         <mat-list-item *ngIf="commentForm.valid">
-          <p matLine>{{comment.comment}}</p>
-          <p matLine>{{comment.rating}}</p>
-          <p matLine>--{{comment.author}}  {{comment.date|date}}</p>
+          <h4 matLine>{{commentForm.get('comment').value}}</h4>
+          <p matLine>{{commentForm.get('rating').value}} Stars</p>
+          <p matLine>--{{commentForm.get('author').value}}</p>
         </mat-list-item>
         
 
