@@ -59,7 +59,7 @@
     
   </div>
 
-  <mat-list fxFlex *ngIf="leaders">
+  <mat-list fxFlex *ngIf="leaders" [@expand]>
       <mat-list-item *ngFor="let leader of leaders">
         <img matListAvatar src={{leader.image}} alt="{{leader.name}}">
         <h3 matLine>{{leader.name}}</h3>
